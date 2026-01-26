@@ -1,0 +1,95 @@
+// ==========================================================================
+// Navigation Components
+// ==========================================================================
+@layer components {
+    .navbar {
+        @apply bg-white border-b border-gray-200 sticky top-0 z-40;
+    }
+
+    .navbar-container {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .navbar-content {
+        @apply flex items-center justify-between h-16;
+    }
+
+    .navbar-brand {
+        @apply flex items-center gap-2;
+
+        .brand-logo {
+            @apply h-8 w-auto;
+        }
+
+        .brand-text {
+            @apply text-xl font-bold text-primary-600 hover:text-primary-700;
+        }
+    }
+
+    .navbar-nav {
+        @apply hidden md:flex items-center gap-1;
+    }
+
+    .nav-link {
+        @apply px-3 py-2 text-sm font-medium text-gray-600 rounded-lg
+               hover:text-gray-900 hover:bg-gray-100
+               transition-colors duration-200;
+
+        &.active {
+            @apply text-primary-600 bg-primary-50;
+        }
+    }
+
+    .navbar-auth {
+        @apply flex items-center gap-3;
+    }
+
+    .nav-user {
+        @apply flex items-center gap-2 text-sm text-gray-700;
+
+        img {
+            @apply w-8 h-8 rounded-full object-cover;
+        }
+    }
+
+    // Mobile Menu
+    .mobile-menu-btn {
+        @apply md:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100;
+    }
+
+    .mobile-menu {
+        @apply md:hidden border-t border-gray-200 py-4;
+
+        .nav-link {
+            @apply block w-full text-left;
+        }
+
+        .navbar-auth {
+            @apply flex-col items-stretch gap-2 pt-4 mt-4 border-t border-gray-200;
+        }
+    }
+
+    // Dropdown Menu
+    .dropdown {
+        @apply relative;
+    }
+
+    .dropdown-menu {
+        @apply absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg
+               border border-gray-100 py-1 z-50
+               opacity-0 invisible transform scale-95
+               transition-all duration-200;
+
+        &.show {
+            @apply opacity-100 visible scale-100;
+        }
+    }
+
+    .dropdown-item {
+        @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100;
+    }
+
+    .dropdown-divider {
+        @apply my-1 border-t border-gray-100;
+    }
+}
