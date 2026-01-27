@@ -1,0 +1,95 @@
+// ==========================================================================
+// Form Components
+// ==========================================================================
+@layer components {
+    .form-group {
+        @apply mb-4;
+    }
+
+    .form-label {
+        @apply block text-sm font-medium text-gray-700 mb-1;
+    }
+
+    .form-input {
+        @apply block w-full px-4 py-2.5
+               text-gray-900 bg-white
+               border border-gray-300 rounded-lg
+               placeholder-gray-400
+               transition-colors duration-200
+               focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+               disabled:bg-gray-100 disabled:cursor-not-allowed;
+
+        &.is-invalid {
+            @apply border-red-500 focus:ring-red-500 focus:border-red-500;
+        }
+    }
+
+    .form-select {
+        @apply form-input appearance-none bg-no-repeat;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.75rem center;
+        background-size: 1.25em 1.25em;
+        padding-right: 2.5rem;
+    }
+
+    .form-textarea {
+        @apply form-input resize-y min-h-[100px];
+    }
+
+    .form-checkbox {
+        @apply h-4 w-4 rounded border-gray-300 text-primary-600
+               focus:ring-primary-500 focus:ring-2
+               transition-colors duration-200;
+    }
+
+    .form-checkbox-label {
+        @apply ml-2 text-sm text-gray-700;
+    }
+
+    .form-radio {
+        @apply h-4 w-4 border-gray-300 text-primary-600
+               focus:ring-primary-500 focus:ring-2;
+    }
+
+    .form-error {
+        @apply mt-1 text-sm text-red-600;
+    }
+
+    .form-hint {
+        @apply mt-1 text-sm text-gray-500;
+    }
+
+    // File Input
+    .form-file {
+        @apply block w-full text-sm text-gray-500
+               file:mr-4 file:py-2 file:px-4
+               file:rounded-lg file:border-0
+               file:text-sm file:font-medium
+               file:bg-primary-50 file:text-primary-700
+               hover:file:bg-primary-100
+               file:cursor-pointer file:transition-colors;
+    }
+
+    // Form Row (for inline fields)
+    .form-row {
+        @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+    }
+
+    // Form Actions
+    .form-actions {
+        @apply flex flex-wrap items-center gap-3 mt-6 pt-6 border-t border-gray-200;
+    }
+
+    // Checkbox Group
+    .checkbox-group {
+        @apply flex items-center;
+
+        input[type="checkbox"] {
+            @apply form-checkbox;
+        }
+
+        label {
+            @apply form-checkbox-label cursor-pointer;
+        }
+    }
+}

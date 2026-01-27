@@ -1,0 +1,124 @@
+// ==========================================================================
+// Card Components
+// ==========================================================================
+@layer components {
+    .card {
+        @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden;
+    }
+
+    .card-header {
+        @apply px-6 py-4 border-b border-gray-100 bg-gray-50;
+    }
+
+    .card-body {
+        @apply px-6 py-5;
+    }
+
+    .card-footer {
+        @apply px-6 py-4 border-t border-gray-100 bg-gray-50;
+    }
+
+    .card-title {
+        @apply text-lg font-semibold text-gray-900;
+    }
+
+    .card-subtitle {
+        @apply text-sm text-gray-500 mt-1;
+    }
+
+    // Recipe Card
+    .recipe-card {
+        @apply card flex flex-col transition-shadow duration-200 hover:shadow-md;
+
+        .recipe-image {
+            @apply w-full h-48 object-cover;
+        }
+
+        .recipe-content {
+            @apply card-body flex-1 flex flex-col;
+        }
+
+        .recipe-title {
+            @apply text-lg font-semibold text-gray-900 mb-2 line-clamp-2;
+        }
+
+        .recipe-description {
+            @apply text-sm text-gray-600 mb-4 line-clamp-2 flex-1;
+        }
+
+        .recipe-meta {
+            @apply flex items-center gap-3 text-sm text-gray-500;
+        }
+
+        .recipe-actions {
+            @apply flex items-center gap-2 mt-4 pt-4 border-t border-gray-100;
+        }
+    }
+
+    // Profile Card
+    .profile-card {
+        @apply card;
+
+        .profile-avatar {
+            @apply flex flex-col items-center p-6 border-b border-gray-100;
+
+            img {
+                @apply w-24 h-24 rounded-full object-cover mb-4;
+            }
+
+            .avatar-placeholder {
+                @apply w-24 h-24 rounded-full bg-primary-100 text-primary-600
+                       flex items-center justify-center text-3xl font-bold mb-4;
+            }
+        }
+
+        .profile-info {
+            @apply p-6 space-y-4;
+        }
+
+        .profile-actions {
+            @apply p-6 pt-0 flex flex-col gap-2;
+        }
+
+        .info-group {
+            @apply flex flex-col;
+
+            label {
+                @apply text-xs font-medium text-gray-500 uppercase tracking-wide;
+            }
+
+            span {
+                @apply text-gray-900;
+            }
+        }
+    }
+
+    // Auth Container
+    .auth-container {
+        @apply max-w-md mx-auto;
+
+        h1 {
+            @apply text-2xl font-bold text-gray-900 text-center mb-6;
+        }
+
+        form {
+            @apply card p-6;
+        }
+
+        .form-links {
+            @apply flex flex-col gap-2 mt-4 pt-4 border-t border-gray-100 text-center text-sm;
+        }
+
+        .social-auth {
+            @apply mt-6 text-center;
+
+            p {
+                @apply text-sm text-gray-500 mb-4;
+            }
+
+            .social-buttons {
+                @apply flex flex-col sm:flex-row gap-3 justify-center;
+            }
+        }
+    }
+}
