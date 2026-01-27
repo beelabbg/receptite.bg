@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <title>@yield('title', 'Default Title')</title>
-    <!-- add other meta tags and stylesheets here -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'Receptite.bg')</title>
+    @vite(['resources/assets/css/app.css', 'resources/assets/js/app.js'])
 </head>
-<body>
+<body class="bg-gray-50">
 
     @include('partials.header')
 
-    <main>
+    <main class="min-h-screen">
         @yield('content')
-    </div>
+    </main>
 
-    @include('partials.header')
+    @include('partials.footer')
 
 </body>
 </html>
