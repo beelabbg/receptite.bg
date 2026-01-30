@@ -1,1 +1,280 @@
-(()=>{var e,t={763(){document.addEventListener("DOMContentLoaded",function(){var e=document.querySelector(".mobile-menu-btn"),t=document.querySelector(".mobile-menu");e&&t&&e.addEventListener("click",function(){t.classList.toggle("hidden")}),document.querySelectorAll(".dropdown").forEach(function(e){var t=e.querySelector("[data-dropdown-trigger]"),n=e.querySelector(".dropdown-menu");t&&n&&t.addEventListener("click",function(e){e.stopPropagation(),n.classList.toggle("show")})}),document.addEventListener("click",function(){document.querySelectorAll(".dropdown-menu.show").forEach(function(e){e.classList.remove("show")})}),document.querySelectorAll(".flash-messages .alert").forEach(function(e){setTimeout(function(){e.style.opacity="0",e.style.transform="translateX(100%)",setTimeout(function(){e.remove()},300)},5e3)}),document.querySelectorAll('input[type="file"][data-preview]').forEach(function(e){e.addEventListener("change",function(e){var t=this.dataset.preview,n=document.getElementById(t);if(n&&this.files&&this.files[0]){var o=new FileReader;o.onload=function(e){n.src=e.target.result},o.readAsDataURL(this.files[0])}})}),document.querySelectorAll("form").forEach(function(e){e.addEventListener("submit",function(){e.querySelectorAll('button[type="submit"]').forEach(function(e){e.disabled=!0,e.innerHTML='<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> '+e.textContent})})}),document.querySelectorAll("[data-confirm]").forEach(function(e){e.addEventListener("click",function(e){confirm(this.dataset.confirm)||e.preventDefault()})})}),window.App={toast:function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"info",n=document.querySelector(".flash-messages")||this.createFlashContainer(),o=document.createElement("div");o.className="alert alert-".concat(t," animate-fade-in"),o.innerHTML=e,n.appendChild(o),setTimeout(function(){o.style.opacity="0",o.style.transform="translateX(100%)",setTimeout(function(){o.remove()},300)},5e3)},createFlashContainer:function(){var e=document.createElement("div");return e.className="flash-messages",document.body.appendChild(e),e}}},842(){}},n={};function o(e){var r=n[e];if(void 0!==r)return r.exports;var i=n[e]={exports:{}};return t[e](i,i.exports,o),i.exports}o.m=t,e=[],o.O=(t,n,r,i)=>{if(!n){var a=1/0;for(u=0;u<e.length;u++){for(var[n,r,i]=e[u],c=!0,l=0;l<n.length;l++)(!1&i||a>=i)&&Object.keys(o.O).every(e=>o.O[e](n[l]))?n.splice(l--,1):(c=!1,i<a&&(a=i));if(c){e.splice(u--,1);var s=r();void 0!==s&&(t=s)}}return t}i=i||0;for(var u=e.length;u>0&&e[u-1][2]>i;u--)e[u]=e[u-1];e[u]=[n,r,i]},o.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var e={847:0,252:0};o.O.j=t=>0===e[t];var t=(t,n)=>{var r,i,[a,c,l]=n,s=0;if(a.some(t=>0!==e[t])){for(r in c)o.o(c,r)&&(o.m[r]=c[r]);if(l)var u=l(o)}for(t&&t(n);s<a.length;s++)i=a[s],o.o(e,i)&&e[i]&&e[i][0](),e[i]=0;return o.O(u)},n=self.webpackChunk=self.webpackChunk||[];n.forEach(t.bind(null,0)),n.push=t.bind(null,n.push.bind(n))})(),o.O(void 0,[252],()=>o(763));var r=o.O(void 0,[252],()=>o(842));r=o.O(r)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./resources/js/app.js"
+/*!*****************************!*\
+  !*** ./resources/js/app.js ***!
+  \*****************************/
+() {
+
+/**
+ * Main Application JavaScript
+ */
+
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function () {
+  var mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  var mobileMenu = document.querySelector('.mobile-menu');
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', function () {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // Dropdown Toggle
+  document.querySelectorAll('.dropdown').forEach(function (dropdown) {
+    var trigger = dropdown.querySelector('[data-dropdown-trigger]');
+    var menu = dropdown.querySelector('.dropdown-menu');
+    if (trigger && menu) {
+      trigger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        menu.classList.toggle('show');
+      });
+    }
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.dropdown-menu.show').forEach(function (menu) {
+      menu.classList.remove('show');
+    });
+  });
+
+  // Auto-hide flash messages after 5 seconds
+  document.querySelectorAll('.flash-messages .alert').forEach(function (alert) {
+    setTimeout(function () {
+      alert.style.opacity = '0';
+      alert.style.transform = 'translateX(100%)';
+      setTimeout(function () {
+        alert.remove();
+      }, 300);
+    }, 5000);
+  });
+
+  // File input preview
+  document.querySelectorAll('input[type="file"][data-preview]').forEach(function (input) {
+    input.addEventListener('change', function (e) {
+      var previewId = this.dataset.preview;
+      var preview = document.getElementById(previewId);
+      if (preview && this.files && this.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+        };
+        reader.readAsDataURL(this.files[0]);
+      }
+    });
+  });
+
+  // Form validation styling
+  document.querySelectorAll('form').forEach(function (form) {
+    form.addEventListener('submit', function () {
+      var submitBtns = form.querySelectorAll('button[type="submit"]');
+      submitBtns.forEach(function (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ' + btn.textContent;
+      });
+    });
+  });
+
+  // Confirm delete dialogs (using native confirm)
+  document.querySelectorAll('[data-confirm]').forEach(function (element) {
+    element.addEventListener('click', function (e) {
+      if (!confirm(this.dataset.confirm)) {
+        e.preventDefault();
+      }
+    });
+  });
+});
+
+// Utility functions
+window.App = {
+  // Show toast notification
+  toast: function toast(message) {
+    var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'info';
+    var container = document.querySelector('.flash-messages') || this.createFlashContainer();
+    var alert = document.createElement('div');
+    alert.className = "alert alert-".concat(type, " animate-fade-in");
+    alert.innerHTML = message;
+    container.appendChild(alert);
+    setTimeout(function () {
+      alert.style.opacity = '0';
+      alert.style.transform = 'translateX(100%)';
+      setTimeout(function () {
+        alert.remove();
+      }, 300);
+    }, 5000);
+  },
+  createFlashContainer: function createFlashContainer() {
+    var container = document.createElement('div');
+    container.className = 'flash-messages';
+    document.body.appendChild(container);
+    return container;
+  }
+};
+
+/***/ },
+
+/***/ "./resources/sass/app.scss"
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Check if module exists (development only)
+/******/ 		if (__webpack_modules__[moduleId] === undefined) {
+/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/js/app": 0,
+/******/ 			"css/app": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=app.js.map

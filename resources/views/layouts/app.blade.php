@@ -3,12 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <title>@yield('title', 'Receptite.bg')</title>
-    @vite(['resources/assets/css/app.css', 'resources/assets/js/app.js'])
-</head>
-<body class="bg-gray-50">
-=======
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', config('app.name'))</title>
 
@@ -19,6 +13,7 @@
 
     {{-- Styles --}}
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <script src="{{ mix('js/app.js') }}"></script>
 
     @stack('styles')
 </head>
@@ -34,7 +29,6 @@
                     <span>{{ session('status') }}</span>
                 </div>
             @endif
->>>>>>> 214a354adb3deaf6ca76d2026310a47809063d24
 
             @if (session('success'))
                 <div class="alert alert-success">
@@ -68,23 +62,14 @@
     {{-- Header / Navigation --}}
     @include('partials.header')
 
-<<<<<<< HEAD
     <main class="min-h-screen">
         @yield('content')
     </main>
 
-=======
-    {{-- Main Content --}}
-    <main class="main-content">
-        @yield('content')
-    </main>
-
-    {{-- Footer --}}
->>>>>>> 214a354adb3deaf6ca76d2026310a47809063d24
     @include('partials.footer')
 
     {{-- Scripts --}}
-    <script src="{{ mix('js/app.js') }}"></script>
+    
     @stack('scripts')
 </body>
 </html>
